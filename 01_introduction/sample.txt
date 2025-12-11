@@ -1,0 +1,4 @@
+If you want the highest viewed general architecture playlist go with #1 (Gaurav Sen’s).
+If you want pure microservices architecture deep dive #3 or #4.
+If you are working with Java/Spring Boot specifically #5.
+If you like, I can dig further and find 10-15 more playlists, show full view counts, subscriber metrics, and filter by topic (e.g., Scala/Go/Cloud) so you can pick the very top ones.
