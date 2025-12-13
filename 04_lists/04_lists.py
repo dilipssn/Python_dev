@@ -10,7 +10,7 @@ def apply_discount(cart):
         discount = total * 0.1
         print(f"{discount = }")
 
-        # subtract from total
+        # subtract from total (//1 --> is kind of round_of)
         total = (total - discount) // 1
 
     print(f"{total =}")
