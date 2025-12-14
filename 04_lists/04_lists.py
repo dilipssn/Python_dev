@@ -109,7 +109,22 @@ prices = [999, 1500, 120]
 prices.sort(reverse=False)
 print(prices)
 
+ def search_by_name(cart: list):
+     prices = []
+     for item in cart:
+         item_price = item['price']
+         print(f"Match Found: {item_price}")
+         prices.append(item_price)
+     prices.sort(reverse=False)
+     return prices
 
+ search_by_name(products)
+
+# search_by_name(products)
+# Match Found: 999
+# Match Found: 1500
+# Match Found: 120
+# [120, 999, 1500]
 
 
 
