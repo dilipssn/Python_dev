@@ -125,6 +125,22 @@ print (student_grade_analyzer(students))
 # Class average score is 78.0
 
 # Find top 3 students
+def top_three_student(students: list):
+    score_avg_list = []
+    for student in students:
+        score_avg = (int(sum(student ["scores"]) / len(student ["scores"])))
+        score_avg_list.append(int(score_avg))
+        print (f"{student ["name"]}, {score_avg}")
+    score_avg_list.sort(reverse = True)
+    print (score_avg_list[:3])
+
+top_three_student(students)
+# Alice, 86
+# Bob, 72
+# Tina, 66
+# Meena, 89
+# [89, 86, 72]
+
 # Identify students below passing grade (60)
 # Calculate grade distribution (A, B, C, D, F counts)
 # Generate progress reports
