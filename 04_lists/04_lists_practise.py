@@ -110,6 +110,20 @@ print (process_stock(stock))
 # Process student grades:
 
 # Calculate class average
+def student_grade_analyzer(students: list):
+    student_count = 0
+    sum_of_score_avg = 0
+    for student in students:
+        student_count += 1
+        std_score = student ["scores"]
+        score_avg = (sum(std_score) / len(std_score))
+        sum_of_score_avg = sum_of_score_avg + score_avg
+    class_avg = (sum_of_score_avg / student_count) // 1
+    return f"Class average score is {class_avg}"
+
+print (student_grade_analyzer(students))
+# Class average score is 78.0
+
 # Find top 3 students
 # Identify students below passing grade (60)
 # Calculate grade distribution (A, B, C, D, F counts)
