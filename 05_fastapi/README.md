@@ -30,14 +30,12 @@ This API provides **50+ endpoints** across 5 major categories:
 
 ## 📁 Project Structure
 
-```
 05_fastapi/
 │
 ├── main.py              # FastAPI application with all endpoints
 ├── helpers.py           # Python functions for string operations
 ├── requirements.txt     # Python dependencies
 └── README.md           # This file
-```
 
 ---
 
