@@ -145,25 +145,91 @@ def student_grade_analyzer(students: list): # lets come to this later. Please wo
 print (student_grade_analyzer(students))
 # Class average score is 78.0
 
+
 # Find top 3 students
 def top_three_student(students: list):
     score_avg_list = []
+    top_students = {}
     for student in students:
         score_avg = (int(sum(student ["scores"]) / len(student ["scores"])))
         score_avg_list.append(int(score_avg))
-        print (f"{student ["name"]}, {score_avg}")
+        top_students[score_avg] = student ["name"]
     score_avg_list.sort(reverse = True)
-    print (score_avg_list[:3])
+    print ("Top Three Students are :")
+    for top_score in score_avg_list[:3]:
+        print (f"{top_students[top_score]}: {top_score}")
 
 top_three_student(students)
-# Alice, 86
-# Bob, 72
-# Tina, 66
-# Meena, 89
-# [89, 86, 72]
+
+# Top Three Students are :
+# Meena: 89
+# Alice: 86
+# Bob: 72
 
 # Identify students below passing grade (60)
+students = [
+    {"name": "Alice", "scores": [85, 90, 78, 92]},
+    {"name": "Bob", "scores": [70, 65, 80, 75]},
+    {"name": "Tina", "scores": [60, 56, 52, 47]},
+    {"name": "Meena", "scores": [85, 85, 89, 99]}
+]
+def find_failed_student(students: list):
+    score_avg_list = []
+    students_dict = {}
+    for student in students:
+        score_avg = (int(sum(student ["scores"]) / len(student ["scores"])))
+        score_avg_list.append(int(score_avg))
+        students_dict[score_avg] = student ["name"]
+    print ("Students below has/have took below passing grade (60) :")
+    for score in score_avg_list:
+        if score <= 60:
+            print (f"{students_dict[score]}: {score}")
+
+
+find_failed_student(students)
+
+# Students below has/have took below passing grade (60) :
+# Tina: 53
+
 # Calculate grade distribution (A, B, C, D, F counts)
+
+students = [
+    {"name": "Alice", "scores": [85, 90, 78, 92]},
+    {"name": "Bob", "scores": [70, 65, 80, 75]},
+    {"name": "Tina", "scores": [60, 56, 52, 47]},
+    {"name": "Meena", "scores": [85, 85, 89, 99]}
+]
+def find_failed_student(students: list):
+    score_avg_list = []
+    students_dict = {}
+    for student in students:
+        score_avg = (int(sum(student ["scores"]) / len(student ["scores"])))
+        score_avg_list.append(int(score_avg))
+        students_dict[score_avg] = student ["name"]
+    print ("Students Score :", students_dict)
+    print ("Students Grade :")
+    for score in score_avg_list:
+        if 91 <= score:
+            print (f"{students_dict[score]}: A")
+        elif 81 < score <= 90:
+            print (f"{students_dict[score]}: B")
+        elif 71 < score <= 80:
+            print (f"{students_dict[score]}: C")
+        elif 61 < score <= 70:
+            print (f"{students_dict[score]}: D")
+        else:
+            print (f"{students_dict[score]}: F")
+
+find_failed_student(students)
+
+# Students Score : {86: 'Alice', 72: 'Bob', 53: 'Tina', 89: 'Meena'}
+# Students Grade :
+# Alice: B
+# Bob: C
+# Tina: F
+# Meena: B
+
+
 # Generate progress reports
 #
 # students = [
