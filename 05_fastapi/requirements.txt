@@ -1,0 +1,3 @@
+# Fast API dependencies
+fastapi
+uvicorn[standard]
