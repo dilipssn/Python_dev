@@ -369,9 +369,45 @@ attendance = [1, 1, 0, 1, 1, 1, 0, 1, 1, 1]
 
 # Tasks:
 # 1. Count total present days
+def count_present_days(attendance):
+    counter = 0
+    for day in attendance:
+        if day == 1:
+            counter += 1
+    return counter
+    
+>>> attendance = [1, 1, 0, 1, 1, 1, 0, 1, 1, 1]
+>>> count_present_days(attendance)
+8
+>>>
+
 # 2. Count total absent days
+def count_absent_days(attendance):
+    counter = 0
+    for day in attendance:
+        if day == 0:
+            counter += 1
+    return counter
+    
+>>> count_absent_days(attendance)
+2
+>>>
+
 # 3. Calculate attendance percentage
+
+>>> attendance_percentage = (count_present_days(attendance)/len(attendance)) * 100
+>>> print (f"Attendance percentage for this month is : {attendance_percentage}")
+Attendance percentage for this month is : 80.0
+>>>
+
 # 4. Check if attendance is >= 75%
+
+>>> if attendance_percentage >= 75:
+...     print (True)
+...
+True
+>>
+
 Problem 8: Student Names
 python
 # Students in a class
@@ -379,10 +415,30 @@ students = ["Alice", "Bob", "Charlie", "David", "Eve"]
 
 # Tasks:
 # 1. Add a new student "Frank"
+students.append("Frank")
 # 2. Remove "Bob" (transferred to another class)
+students.remove("Bob")
 # 3. Check if "Charlie" is in the class
+if "Charlie" in students:
+    print ("Yes, the student 'Charlie' is there in the class")
 # 4. Show students in alphabetical order
+def students_alpha_order(students: list):
+    new_student_list = []
+    for student in students:
+        new_student_list.append(student.lower())
+    
+    new_student_list.sort()
+    return new_student_list
+    
+>>> students_alpha_order(students)
+['alice', 'charlie', 'david', 'eve', 'frank']
+>>>
+    
 # 5. Count total students
+>>> print (f"The total students are :{len(students)}")
+The total students are :5
+>>>
+
 
 
 💰 Money & Finance
