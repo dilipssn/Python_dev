@@ -616,7 +616,49 @@ rolls = [3, 6, 2, 6, 1, 4, 6, 5, 2, 6]
 # 2. Find the most common roll
 # 3. Check if you ever rolled a 1
 # 4. Calculate sum of all rolls
+# Tasks:
+# 1. Count how many times you rolled a 6
+>>> def check_rolled_6(input: list):
+...     """ This function checks how many time the number 6 was rolled from Dices """
+...
+...     count = 0
+...     for roll in input:
+...         if roll == 6:
+...             count += 1
+...     return f"The number 6 was rolled {count} many times "
+...
+>>> check_rolled_6(rolls)
+'The number 6 was rolled 4 many times '
+>>>
 
+
+# 2. Find the most common roll
+
+
+# 3. Check if you ever rolled a 1
+
+>>> rolls = [3, 6, 2, 6, 1, 4, 6, 5, 2, 6]
+>>> def check_rolled_1(input: list):
+...     """ This function checks did number 1 was rolled or not from the Dices """
+...
+...     for roll in input:
+...         if roll == 1:
+...             return f"Yes, have rolled number 1"
+...     return f"No, have never rolled number 1"
+...
+>>> check_rolled_1(rolls)
+'Yes, have rolled number 1'
+>>>
+>>> rolls = [3, 6, 2, 6, 4, 6, 5, 2, 6]
+>>> check_rolled_1(rolls)
+'No, have never rolled number 1'
+>>>
+    
+# 4. Calculate sum of all rolls
+
+>>> print (f"The sum of rolls is {sum(rolls)}")
+The sum of rolls is 41
+>>>
 
 🍕 Food & Restaurant
 Problem 13: Restaurant Orders
