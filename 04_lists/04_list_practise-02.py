@@ -453,6 +453,50 @@ expenses = [45, 20, 15, 60, 30, 25, 50]
 # 3. Find days where you spent more than 40
 # 4. Calculate average daily expense
 # 5. Add today's expense: 35
+
+# Tasks:
+# 1. Calculate total spent
+>>> print (f"Total spent today :{sum(expenses)}")
+Total spent :245
+>>>
+
+# 2. Find your highest expense day
+>>> print (f"Highest expense today :{max(expenses)}")
+Highest expense day :60
+>>>
+
+# 3. Find days where you spent more than 40
+>>> def find_high_expense(expenses):
+    """
+    The function Find days where the spent more than 40 from the given expenses list 
+    """
+...     day = 0
+...     days = []
+...     for expense in expenses:
+...         day += 1
+...         if expense > 40:
+...             days.append(day)
+...
+...     print (f"On the days {days} spent more than 40")
+...
+>>> find_high_expense(expenses)
+On the days [1, 4, 7] spent more than 40
+>>>
+>>>
+            
+# 4. Calculate average daily expense
+>>> print (f"The average daily expense is :{sum(expenses)/len(expenses)}")
+The average daily expense is :35.0
+>>>
+
+# 5. Add today's expense: 35
+>>> expenses.append(35)
+>>> print (f"The average daily expense is :{sum(expenses)/len(expenses)}")
+The average daily expense is :35.0
+>>> print (f" Added a new expense and new spent list is :{expenses}")
+ Added a new expense and new spent list is :[45, 20, 15, 60, 30, 25, 50, 35]
+>>>
+
 Problem 10: Salary Tracking
 python
 # Monthly salaries for the year (in thousands)
@@ -463,6 +507,48 @@ salaries = [50, 50, 52, 50, 55, 50, 50, 58, 50, 50, 60, 50]
 # 2. Find months with bonuses (salary > 50)
 # 3. Calculate average monthly salary
 # 4. Find highest salary month
+
+# Tasks:
+# 1. Calculate total yearly income
+
+>>> salaries = [50, 50, 52, 50, 55, 50, 50, 58, 50, 50, 60, 50]
+>>> print (f"Total yearly income is :{sum(salaries)}")
+Total yearly income is:625
+>>>
+
+# 2. Find months with bonuses (salary > 50)
+
+>>> def find_months_bonuses(salaries: list):
+    """
+    The function Find months with bonuses (salary > 50) from the given salaries list 
+    """
+...     month = 0
+...     months = []
+...     for salary in salaries:
+...         month += 1
+...         if salary > 50:
+...             months.append(month)
+...
+...     print (f"At the {months} months got bonuses ")
+...
+>>> find_months_bonuses(salaries)
+At the [3, 5, 8, 11] months got bonuses
+>>>
+
+# 3. Calculate average monthly salary
+
+>>> salaries = [50, 50, 52, 50, 55, 50, 50, 58, 50, 50, 60, 50]
+>>> print (f"The average monthly salary is :{sum(salaries)/len(salaries)}")
+The average monthly salary is :52.083333333333336
+>>>
+>>> print (f"The average monthly salary is :{sum(salaries)/len(salaries) // 1}")
+The average monthly salary is :52.0
+>>>
+
+# 4. Find highest salary month
+>>> print (f"The Highest monthly salary is :{max(salaries)}")
+The Highest monthly salary is :60
+>>>
 
 
 🎮 Games & Fun
@@ -477,6 +563,49 @@ scores = [120, 150, 90, 200, 110]
 # 3. Calculate average score
 # 4. Check if you ever scored above 180
 # 5. Add a new game score: 175
+
+# Tasks:
+# 1. Find your best score
+>>> scores = [120, 150, 90, 200, 110]
+>>> print (f"The best score is :{max(scores)}")
+The best score is :200
+>>>
+
+# 2. Find your worst score
+>>> print (f"The worst score is :{min(scores)}")
+The worst score is :90
+>>>
+
+# 3. Calculate average score
+>>> print (f"The average score is :{sum(scores)/len(scores)}")
+The average score is :134.0
+>>>
+
+# 4. Check if you ever scored above 180
+>>> scores = [120, 150, 90, 200, 110]
+>>> def check_score(scores: list):
+...     if max(scores) > 180:
+...         return "Yes, I've scored more than 180"    
+...     return "No, I've never scored more than 180"
+...
+>>> check_score(scores)
+"Yes, I've scored more than 180"
+>>> scores = [120, 150, 90, 180, 110]
+>>> check_score(scores)
+"No, I've never scored more than 180"
+>>>
+    
+# 5. Add a new game score: 175
+>>> scores.append(175)
+>>> print (f"Added a new score and new scores list is :{scores}")
+Added a new score and new scores list is :[120, 150, 90, 200, 110, 175, 175]
+>>>
+
+
+# Results of rolling a dice 10 times
+rolls = [3, 6, 2, 6, 1, 4, 6, 5, 2, 6]
+ 
+
 Problem 12: Dice Rolls
 python
 # Results of rolling a dice 10 times
