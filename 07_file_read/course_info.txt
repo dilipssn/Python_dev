@@ -1,0 +1,24 @@
+Python File Handling Practice
+
+Name: Alex Johnson
+Course: Introduction to Python
+Year: 2025
+
+Topics Covered:
+- Reading files
+- Writing files
+- Appending data
+- Working with text files
+- Error handling
+
+Daily Notes:
+Day 1: Learned how to open and read a file.
+Day 2: Practiced writing data to a file.
+Day 3: Learned how to append new content.
+Day 4: Explored file modes and exceptions.
+
+Important Reminder:
+Always close your files after use.
+Using the 'with' statement is recommended.
+
+End of File
