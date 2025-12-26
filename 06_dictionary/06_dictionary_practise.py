@@ -40,18 +40,60 @@ print("EXERCISE 1: Basic Access and Modification")
 print("=" * 60)
 
 # TODO 1.1: Print the status of the "build" stage
+build_status = pipeline["build"]["status"]
+print (f'The status of the "build" stage of Pipeline is : {pipe_build_status}')
+
+# The status of the "build" stage of Pipeline is : success
 
 
 # TODO 1.2: Print the duration of the "test" stage
 
+pipe_test_duration = pipeline["test"]["duration"]
+print (f'The status of the "build" stage of Pipeline is : {pipe_test_duration}')
+
+# The status of the "build" stage of Pipeline is : 5m 30s
+
 
 # TODO 1.3: Update the "deploy" stage status to "running"
+
+pipe_build_status = pipeline["build"]["status"]
+print (f'Current status of Build stage of Pipeline - "{pipe_build_status}"')
+
+# Current status of Build stage of Pipeline - "success"
+
+pipeline["build"]["status"] = "running"
+pipe_build_status_updated = pipeline["build"]["status"]
+print (f'Current status of Build stage of Pipeline after Updated - "{pipe_build_status_updated}"')
+
+# Current status of Build stage of Pipeline after Updated - "running"
+
+
 
 
 # TODO 1.4: Add a new key "started_by" with value "jenkins" to the "build" stage
 
+import json
+pipe_build_dict = pipeline["build"]
+print (f'Current status of Build stage of Pipeline - \n {json.dumps(pipe_build_dict, indent = 4)}')
+
+# Current status of Build stage of Pipeline -
+# {'status': 'running', 'duration': '2m 15s', 'timestamp': '2025-12-20 10:30:00', 'logs_url': 'https://ci.example.com/logs/build/123'}
+ 
+pipe_build_dict.update({'started_by': 'jenkins'})
+
+print (f'Updated a new key "started_by" with value "jenkins" to the "build" stage: \n\n {pipe_build_dict}')
+
+Updated a new key "started_by" with value "jenkins" to the "build" stage:
+
+# {'status': 'running', 'duration': '2m 15s', 'timestamp': '2025-12-20 10:30:00', 'logs_url': 'https://ci.example.com/logs/build/123', 'started_by': 'jenkins'}
+
 
 # TODO 1.5: Print the entire "security_scan" stage dictionary
+
+pipe_sec_scan = pipeline["security_scan"]
+print(f'The Current entire "security_scan" stage dictionary {pipe_sec_scan}')
+
+# The Current entire "security_scan" stage dictionary {'status': 'failed', 'duration': '3m 20s', 'timestamp': '2025-12-20 10:40:00', 'logs_url': 'https://ci.example.com/logs/security/123'}
 
 
 print("\n")
@@ -64,15 +106,50 @@ print("EXERCISE 2: Using get() Method")
 print("=" * 60)
 
 # TODO 2.1: Get the duration of "deploy" stage using get() with a default value "Not started"
-
 # .get(key)   does not throw key error, it returns None
+
+build_dict = pipeline["build"]
+build_dict_duration = build_dict.get("duration","Not started")
+print (f'The duration of "deploy" stage using get method : {build_dict_duration}')
+
+# The duration of "deploy" stage using get method : 2m 15s
+
+
+
 # TODO 2.2: Try to get a non-existent stage "package" using get() with default "Stage not found"
+
+pipe_get_error_check = pipeline.get("package","Not started")
+print (f'The non-existent  of "package" stage from Pipeline retrieve using get method : {pipe_get_error_check}')
+
+# The non-existent  of "package" stage from Pipeline retrieve using get method : Not started
 
 
 # TODO 2.3: Get the "error_message" from "security_scan" stage with default "No error message"
 
+security_scan = pipeline["security_scan"]
+check_security_scan = security_scan.get("location","No error message")
+print (f'The non-existent action from "security_scan" stage Pipeline retrieve using get method : {pipe_check_sec_scan}')
+
+# The non-existent action from "security_scan" stage Pipeline retrieve using get method : No error message
+
 
 # TODO 2.4: Check if "build" stage has "retry_count" key, if not, set it to 0
+
+def check_update_build_stage(pipeline: dict):
+    build_dict = pipeline["build"]
+
+    if "retry_count" not in build_dict:                          # checks the keys in stage dictionary
+       print(f"retry_count param is not sent for build stage. setting it to 0 by default...")
+       pipeline["build"]["retry_count"] = 0
+    print (f"Updated build stage is \n{json.dumps(build_dict, indent = 4)}")
+    
+check_update_build_stage(pipeline)
+
+# {'status': 'running', 'duration': '2m 15s', 'timestamp': '2025-12-20 10:30:00', 'logs_url': 'https://ci.example.com/logs/build/123', 'retry_count': 0}
+
+check_update_build_stage(pipeline)
+# "Found retry_count at 'Build' stage"
+
 
 
 print("\n")
@@ -85,15 +162,96 @@ print("EXERCISE 3: Looping Through Dictionaries")
 print("=" * 60)
 
 # TODO 3.1: Print all stage names (keys only)
+pipeline.keys()
+
+#dict_keys(['build', 'test', 'security_scan', 'deploy'])
 
 
 # TODO 3.2: Print all stage statuses (values only - just the status field)
 
+def print_dict_value_status(pipeline: dict):
+
+    for stage, stage_value in pipeline.items():
+        stage_status = stage_value['status']
+        print(f"{stage} stage's status is :{stage_status}")
+
+
+print_dict_value_status(pipeline)
+
+# build stage's  status is : success
+# test stage's  status is : success
+# security_scan stage's  status is : failed
+# deploy stage's  status is : pending
+
 
 # TODO 3.3: Print stage name and status using items()
 
+def print_dict_key_value_status(pipeline: dict):
+
+    for key,value in pipeline.items():
+        print(key, value)
+
+print_dict_value_status(pipeline)
+
+"""
+print_dict_key_value_status(pipeline)
+
+build {'status': 'success', 'duration': '2m 15s', 'timestamp': '2025-12-20 10:30:00', 'logs_url': 'https://ci.example.com/logs/build/123'}
+test {'status': 'success', 'duration': '5m 30s', 'timestamp': '2025-12-20 10:35:00', 'logs_url': 'https://ci.example.com/logs/test/123'}
+security_scan {'status': 'failed', 'duration': '3m 20s', 'timestamp': '2025-12-20 10:40:00', 'logs_url': 'https://ci.example.com/logs/security/123'}
+deploy {'status': 'pending', 'duration': None, 'timestamp': None, 'logs_url': None}
+
+"""
 
 # TODO 3.4: Print all stages with their complete information in a formatted way
+
+def print_dict_key_value_status(pipeline: dict):
+
+    for key,value in pipeline.items():
+        print(json.dumps ((key, value), indent=4))
+
+print_dict_value_status(pipeline)
+
+"""
+print_dict_key_value_status(pipeline)
+
+[
+    "build",
+    {
+        "status": "success",
+        "duration": "2m 15s",
+        "timestamp": "2025-12-20 10:30:00",
+        "logs_url": "https://ci.example.com/logs/build/123"
+    }
+]
+[
+    "test",
+    {
+        "status": "success",
+        "duration": "5m 30s",
+        "timestamp": "2025-12-20 10:35:00",
+        "logs_url": "https://ci.example.com/logs/test/123"
+    }
+]
+[
+    "security_scan",
+    {
+        "status": "failed",
+        "duration": "3m 20s",
+        "timestamp": "2025-12-20 10:40:00",
+        "logs_url": "https://ci.example.com/logs/security/123"
+    }
+]
+[
+    "deploy",
+    {
+        "status": "pending",
+        "duration": null,
+        "timestamp": null,
+        "logs_url": null
+    }
+]
+"""
 
 
 print("\n")
@@ -107,14 +265,44 @@ print("=" * 60)
 
 # TODO 4.1: Check if "test" stage exists in pipeline
 
+pipeline.keys()
+
+# dict_keys(['build', 'test', 'security_scan', 'deploy'])
 
 # TODO 4.2: Check if "integration_test" stage exists
 
+def check_stage_int_test(pipeline: dict):
+    
+    if "integration_test" in pipeline:
+        print ("Yes, 'integration_test' stage exists in Pipeline")
+    print("No, 'integration_test' stage is NOT exists in Pipeline")
+
+check_stage_int_test(pipeline)
+
+# No, 'integration_test' stage is NOT exists in Pipeline
 
 # TODO 4.3: Check if "build" stage has a "timestamp" key
+def pipeline_build_timestamp (pipeline: dict):
 
+    if "timestamp" in pipeline:
+        return f"Yes, the Build stage has got 'timestamp' detail in it"
+    return f"Sorry, the Build stage has NOT got 'timestamp' detail in it"    
+
+pipeline_build_timestamp (pipeline)
+
+# "Yes, the Build stage has got 'timestamp' detail in it"
 
 # TODO 4.4: Check if "deploy" stage has "error_message" key
+
+def pipeline_deploy_err_msg(pipeline: dict):
+    if "error_message" in pipeline:
+        return f"Yes, the deploy stage has got 'error_message' detail in it"
+    return f"Sorry, the deploy stage has NOT got 'error_message' detail in it"    
+
+
+pipeline_deploy_err_msg(pipeline)
+
+# "Sorry, the deploy stage has NOT got 'error_message' detail in it"     
 
 
 print("\n")
@@ -474,4 +662,4 @@ print("EXERCISES COMPLETE!")
 print("=" * 60)
 print("Now try solving these exercises one by one.")
 print("Start with Exercise 1 and work your way up!")
-print("Don't forget to test your solutions by running the code.")
+print("Don't forget to test your solutions by runn
