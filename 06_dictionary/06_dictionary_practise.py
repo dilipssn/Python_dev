@@ -40,7 +40,7 @@ print("EXERCISE 1: Basic Access and Modification")
 print("=" * 60)
 
 # TODO 1.1: Print the status of the "build" stage
-pipe_build_status = pipeline["build"]["status"]
+build_status = pipeline["build"]["status"]
 print (f'The status of the "build" stage of Pipeline is : {pipe_build_status}')
 
 # The status of the "build" stage of Pipeline is : success
@@ -72,8 +72,9 @@ print (f'Current status of Build stage of Pipeline after Updated - "{pipe_build_
 
 # TODO 1.4: Add a new key "started_by" with value "jenkins" to the "build" stage
 
+import json
 pipe_build_dict = pipeline["build"]
-print (f'Current status of Build stage of Pipeline - \n {pipe_build_dict}')
+print (f'Current status of Build stage of Pipeline - \n {json.dumps(pipe_build_dict, indent = 4)}')
 
 # Current status of Build stage of Pipeline -
 # {'status': 'running', 'duration': '2m 15s', 'timestamp': '2025-12-20 10:30:00', 'logs_url': 'https://ci.example.com/logs/build/123'}
@@ -107,9 +108,9 @@ print("=" * 60)
 # TODO 2.1: Get the duration of "deploy" stage using get() with a default value "Not started"
 # .get(key)   does not throw key error, it returns None
 
-pipe_build_dict = pipeline["build"]
-pipe_build_dict_duration = pipe_build_dict.get("duration","Not started")
-print (f'The duration of "deploy" stage using get method : {pipe_build_dict_duration}')
+build_dict = pipeline["build"]
+build_dict_duration = build_dict.get("duration","Not started")
+print (f'The duration of "deploy" stage using get method : {build_dict_duration}')
 
 # The duration of "deploy" stage using get method : 2m 15s
 
@@ -125,8 +126,8 @@ print (f'The non-existent  of "package" stage from Pipeline retrieve using get m
 
 # TODO 2.3: Get the "error_message" from "security_scan" stage with default "No error message"
 
-pipe_sec_scan_dict = pipeline["security_scan"]
-pipe_check_sec_scan = pipe_sec_scan_dict.get("location","No error message")
+security_scan = pipeline["security_scan"]
+check_security_scan = security_scan.get("location","No error message")
 print (f'The non-existent action from "security_scan" stage Pipeline retrieve using get method : {pipe_check_sec_scan}')
 
 # The non-existent action from "security_scan" stage Pipeline retrieve using get method : No error message
@@ -135,13 +136,12 @@ print (f'The non-existent action from "security_scan" stage Pipeline retrieve us
 # TODO 2.4: Check if "build" stage has "retry_count" key, if not, set it to 0
 
 def check_update_build_stage(pipeline: dict):
-    pipe_build_dict = pipeline["build"]
-    
-    for action in pipe_build_dict:
-        if action == "retry_count":
-            return f"Found retry_count at 'Build' stage"
-    pipeline["build"]["retry_count"] = 0
-    return pipeline["build"]
+    build_dict = pipeline["build"]
+
+    if "retry_count" not in build_dict:                          # checks the keys in stage dictionary
+       print(f"retry_count param is not sent for build stage. setting it to 0 by default...")
+       pipeline["build"]["retry_count"] = 0
+    print (f"Updated build stage is \n{json.dumps(build_dict, indent = 4)}")
     
 check_update_build_stage(pipeline)
 
@@ -171,10 +171,9 @@ pipeline.keys()
 
 def print_dict_value_status(pipeline: dict):
 
-    for key_1, value_1 in pipeline.items():
-        for key, value in value_1.items():
-            if key == "status":
-                print(f"{key_1} stage's  {key} is : {value}")
+    for stage, stage_value in pipeline.items():
+        stage_status = stage_value['status']
+        print(f"{stage} stage's status is :{stage_status}")
 
 
 print_dict_value_status(pipeline)
@@ -273,9 +272,8 @@ pipeline.keys()
 # TODO 4.2: Check if "integration_test" stage exists
 
 def check_stage_int_test(pipeline: dict):
-    pipeline_keys = pipeline.keys()
     
-    if "integration_test" in pipeline_keys:
+    if "integration_test" in pipeline:
         print ("Yes, 'integration_test' stage exists in Pipeline")
     print("No, 'integration_test' stage is NOT exists in Pipeline")
 
@@ -285,12 +283,10 @@ check_stage_int_test(pipeline)
 
 # TODO 4.3: Check if "build" stage has a "timestamp" key
 def pipeline_build_timestamp (pipeline: dict):
-    pipe_build_dict = pipeline["build"]
 
-    for key in pipe_build_dict:
-        if key == "timestamp":
-            return f"Yes, the Build stage has got 'timestamp' detail in it"
-    return f"Sorry, the Build stage has NOT got 'timestamp' detail in it"
+    if "timestamp" in pipeline:
+        return f"Yes, the Build stage has got 'timestamp' detail in it"
+    return f"Sorry, the Build stage has NOT got 'timestamp' detail in it"    
 
 pipeline_build_timestamp (pipeline)
 
@@ -299,12 +295,9 @@ pipeline_build_timestamp (pipeline)
 # TODO 4.4: Check if "deploy" stage has "error_message" key
 
 def pipeline_deploy_err_msg(pipeline: dict):
-    pipe_deploy_dict = pipeline["deploy"]
-
-    for key in pipe_deploy_dict:
-        if key == "error_message":
-            return f"Yes, the deploy stage has got 'error_message' detail in it"
-    return f"Sorry, the deploy stage has NOT got 'error_message' detail in it"
+    if "error_message" in pipeline:
+        return f"Yes, the deploy stage has got 'error_message' detail in it"
+    return f"Sorry, the deploy stage has NOT got 'error_message' detail in it"    
 
 
 pipeline_deploy_err_msg(pipeline)
