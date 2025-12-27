@@ -104,7 +104,7 @@ with open ("sample_text_file.txt", 'r') as file:
     print (f'The logest line number is "{max_line_length}" and the line displayed as below \n{line_length_dict[max_line_length]}\n')
 
 # The logest line number is "51" and the line displayed as below
-# --------------------------------------------------
+# Industry: Software Development, Telecommunication devices maufacturing and IT Services
 
 ## Exercise 3: Word Counter
 # Read a text file and count how many times a specific word appears (case-insensitive).
