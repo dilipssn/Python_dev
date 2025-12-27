@@ -19,7 +19,7 @@
 # # Efficient and in-practise approach
 with open('course_info.txt') as file:
     for line in file:
-        print(line.strip()) 
+        print("Course Info file Stripped and result",line.strip()) 
 
 # # Efficient and in-practise approach
 # with open('dummy.txt') as file:

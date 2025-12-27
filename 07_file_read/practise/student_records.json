@@ -1,0 +1,27 @@
+{
+  "student1": {
+    "name": "Aarav Sharma",
+    "age": 15,
+    "grade": "100"
+  },
+  "student2": {
+    "name": "Diya Patel",
+    "age": 14,
+    "grade": "99"
+  },
+  "student3": {
+    "name": "Rahul Verma",
+    "age": 16,
+    "grade": "71"
+  },
+  "student4": {
+      "name": "Sneha Iyer",
+      "age": 15,
+      "grade": "90"
+    },
+  "student5": {
+      "name": "Karan Singh",
+      "age": 17,
+      "grade": "52"
+    }
+}
