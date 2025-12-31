@@ -145,3 +145,35 @@ read_csv(csv_file = "./employees.csv")
 # Average salary: 84666.67
 # Highest pay: 120000
 # Lowest pay: 70000
+
+
+"""
+## Exercise 9: Multiple File Reader
+Create 3-4 small text files. 
+Write a program that reads all of them and combines their content 
+into a single output file.
+"""
+def combine_files(output_file, *input_files):
+    
+    with open(output_file, 'w') as outfile:    
+        for file in input_files:
+            
+            if not os.path.exists(file) or os.stat(file).st_size == 0:
+                print(f"File {file} does not exist or empty. Please create it with some content.")
+                continue
+            
+            print(f"Reading file: {file} ...")
+        
+            with open(file, 'r') as infile:
+                outfile.write(f"--- {file} ---\n")
+                for line in infile:
+                    outfile.write(line)
+                outfile.write("\n")  # Separate contents of different files
+                
+                
+combine_files("merged.txt", "sample1.txt", "sample2.txt", "sample3.txt", "sample4.txt")
+
+# Reading file: sample1.txt ...
+# File sample2.txt does not exist or empty. Please create it with some content.
+# Reading file: sample3.txt ...
+# Reading file: sample4.txt ...

@@ -1,0 +1,14 @@
+--- sample1.txt ---
+Line 1 from sample1
+Line 2 from sample1
+End of sample1
+
+--- sample3.txt ---
+Alpha line
+Beta line
+Gamma line
+
+--- sample4.txt ---
+First paragraph of sample4.
+Second paragraph of sample4.
+
