@@ -79,8 +79,9 @@ Would you like me to provide solution hints for any specific exercise, or would 
 # Create a text file with some content. 
 # Write a program that reads the file and prints the total number of lines.
 
+text_file = 'sample_text_file.txt'
 
-with open ('sample_text_file.txt', 'r') as file:
+with open (text_file, 'r') as file:
     counter = 0
 
     for employee in file:
@@ -93,7 +94,7 @@ with open ('sample_text_file.txt', 'r') as file:
 # Read a text file and find the longest line. Print both the line and its length.
 
 
-with open ("sample_text_file.txt", 'r') as file:
+with open (text_file, 'r') as file:
     line_length_dict = {}
 
     for line in file:
@@ -103,22 +104,22 @@ with open ("sample_text_file.txt", 'r') as file:
     max_line_length = max(line_length_dict.keys())
     print (f'The logest line number is "{max_line_length}" and the line displayed as below \n{line_length_dict[max_line_length]}\n')
 
-# The logest line number is "51" and the line displayed as below
+# The logest line number is "87" and the line displayed as below
 # Industry: Software Development, Telecommunication devices maufacturing and IT Services
 
 ## Exercise 3: Word Counter
 # Read a text file and count how many times a specific word appears (case-insensitive).
 
-with open("sample_text_file.txt", 'r') as file:
-    counter = 0
+with open(text_file, 'r') as file:
+  counter = 0
 
-    for lines in file:
-        for word in lines.split(" "):
-            if "employee" == word.lower():
-                counter += 1
-    print (f"I found the word 'employee', {counter} many times in the given file\n")
+  for lines in file:
+    line_lower = lines.lower()
+    occurrences = line_lower.count("employee")
+    counter += occurrences
+print (f"I found the word 'employee', {counter} many times in the given file\n")
 
-# I found the word 'employee', 13 many times in the given file
+# I found the word 'employee', 14 many times in the given file
 
 ## Exercise 4: JSON Student Records
 # Create a JSON file with student records (name, age, grade). Read it and print only students with grade above 80.
@@ -126,9 +127,11 @@ import json
 
 with open ('student_records.json', 'r') as file:
     student_details = json.load(file)
+
     for student in student_details:
 #        print (type(student_details[student]["grade"]))
-        if int(student_details[student]["grade"]) > 80:
+        grade = int(student_details[student]["grade"])
+        if grade > 80:
             print (json.dumps(student_details[student], indent=4))
 
             
@@ -139,7 +142,9 @@ with open ('student_records.json', 'r') as file:
 # - Lowest paid employee
 import csv
 
-with open('employee_details.csv', 'r') as file:
+csv_file = 'employee_details.csv'
+
+with open(csv_file, 'r') as file:
     employee_csv_reader = csv.DictReader(file, delimiter=",")
     
     total = 0
@@ -157,19 +162,19 @@ with open('employee_details.csv', 'r') as file:
     
     if count > 0:
         avg_emp_salary = total / count
-        print(f"\nAverage salary of employee is : {avg_emp_salary}")
-        print(f"Highly paid employee's salary is : {highest}")    
-        print(f"Least paid employee's salary is : {lowest}\n")
+        print(f"""
+              Average salary of employee is : {avg_emp_salary}
+              Highly paid employee's salary is : {highest}   
+              Least paid employee's salary is : {lowest} """)
 
 
 ## Exercise 6: File Content Reverser
 # Read a text file line by line and print all lines in reverse order (last line first).
 
-with open('sample_text_file.txt', 'r') as file:
-    for line in file:
-        print(f'{line[::-1]}')
+with open(text_file, 'r') as file:
+        # Read all lines into a list, then iterate over the reversed list 
+        for line in reversed(file.readlines()):
+            print(line.rstrip())  
 
 ## Exercise 7: JSON to CSV Converter
 # Read data from a JSON file and write it to a CSV file. For example, convert a list of products with name and price.
-
-
