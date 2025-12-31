@@ -1,0 +1,123 @@
+Company Name: TechNova Solutions Pvt. Ltd.
+Industry: Software Development, Telecommunication devices maufacturing and IT Services
+Founded: 2015
+Headquarters: Bengaluru, India
+Total Employees: 50
+--------------------------------------------------
+
+Employee ID: EMP001
+Name: Aarav Sharma
+Age: 28
+Department: Software Development
+Role: Python Developer
+Experience: 4 years
+Salary: 850000 INR
+--------------------------------------------------
+
+Employee ID: EMP002
+Name: Neha Verma
+Age: 32
+Department: Software Development
+Role: Backend Engineer
+Experience: 7 years
+Salary: 1200000 INR
+--------------------------------------------------
+
+Employee ID: EMP003
+Name: Rohan Iyer
+Age: 26
+Department: Quality Assurance
+Role: QA Engineer
+Experience: 3 years
+Salary: 650000 INR
+--------------------------------------------------
+
+Employee ID: EMP004
+Name: Priya Nair
+Age: 35
+Department: Human Resources
+Role: HR Manager
+Experience: 10 years
+Salary: 1100000 INR
+--------------------------------------------------
+
+Employee ID: EMP005
+Name: Kunal Mehta
+Age: 30
+Department: DevOps
+Role: DevOps Engineer
+Experience: 6 years
+Salary: 1050000 INR
+--------------------------------------------------
+
+Employee ID: EMP006
+Name: Ananya Singh
+Age: 27
+Department: Software Development
+Role: Frontend Developer
+Experience: 4 years
+Salary: 800000 INR
+--------------------------------------------------
+
+Employee ID: EMP007
+Name: Vikram Rao
+Age: 34
+Department: Project Management
+Role: Project Manager
+Experience: 9 years
+Salary: 1400000 INR
+--------------------------------------------------
+
+Employee ID: EMP008
+Name: Sneha Kulkarni
+Age: 29
+Department: Data Analytics
+Role: Data Analyst
+Experience: 5 years
+Salary: 950000 INR
+--------------------------------------------------
+
+Employee ID: EMP009
+Name: Rahul Gupta
+Age: 31
+Department: Software Development
+Role: Java Developer
+Experience: 6 years
+Salary: 1000000 INR
+--------------------------------------------------
+
+Employee ID: EMP010
+Name: Pooja Malhotra
+Age: 25
+Department: Marketing
+Role: Digital Marketing Executive
+Experience: 2 years
+Salary: 550000 INR
+--------------------------------------------------
+
+Employee ID: EMP011
+Name: Suresh Patil
+Age: 38
+Department: Finance
+Role: Finance Manager
+Experience: 13 years
+Salary: 1500000 INR
+--------------------------------------------------
+
+Employee ID: EMP012
+Name: Kavita Joshi
+Age: 33
+Department: Administration
+Role: Admin Officer
+Experience: 8 years
+Salary: 700000 INR
+--------------------------------------------------
+
+Employee ID: EMP013
+Name: Arjun Reddy
+Age: 28
+Department: Data Science
+Role: Data Scientist
+Experience: 4 years
+Salary: 1300000 INR
+--------------------------------------------------
