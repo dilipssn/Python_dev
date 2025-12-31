@@ -1,0 +1,5 @@
+Line 1: Welcome to the exercise.
+Line 2: This file contains multiple lines.
+Line 3: You need to count them.
+Line 4: Python makes this easy.
+Line 5: Good luck with your coding! This line is the new longest.

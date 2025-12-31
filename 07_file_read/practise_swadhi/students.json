@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "name": "Aarav Kumar",
+      "age": 16,
+      "grade": 78
+    },
+    {
+      "name": "Diya Nair",
+      "age": 17,
+      "grade": 92
+    },
+    {
+      "name": "Rahul Menon",
+      "age": 15,
+      "grade": 84
+    },
+    {
+      "name": "Sahana Iyer",
+      "age": 16,
+      "grade": 73
+    },
+    {
+      "name": "Vikram Rao",
+      "age": 18,
+      "grade": 95
+    },
+    {
+      "name": "Ananya Gupta",
+      "age": 17,
+      "grade": 80
+    }
+  ]
+}
