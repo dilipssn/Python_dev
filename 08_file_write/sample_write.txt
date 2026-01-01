@@ -1,0 +1,5 @@
+Python is awesome!
+File writing is fun.
+Practice makes perfect.
+Keep coding every day.
+Good luck with your coding!
